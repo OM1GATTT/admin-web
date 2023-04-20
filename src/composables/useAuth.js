@@ -66,6 +66,8 @@ export function useAccountLogin() {
 					if (res.code === 1) {
 						toast('登录成功')
 						router.push('/')
+					}else{
+						toast(res.msg,'error')
 					}
 					loading.value = false
 				})

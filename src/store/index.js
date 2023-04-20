@@ -59,7 +59,9 @@ export const useAdminStore = defineStore('admin', {
 			return new Promise((resolve, reject) => {
 				login(username, password)
 					.then(res => {
-						setToken(res.data.accessToken)
+						if(res.code===1){
+							setToken(res.data.accessToken)
+						}
 						resolve(res)
 					})
 					.catch(err => reject(err))
