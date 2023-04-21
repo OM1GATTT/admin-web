@@ -41,6 +41,7 @@ declare global {
   const getCurrentInstance: typeof import('vue')['getCurrentInstance']
   const getCurrentScope: typeof import('vue')['getCurrentScope']
   const getInfo: typeof import('@/api/admin')['getInfo']
+  const getNoticeList: typeof import('@/api/notice')['getNoticeList']
   const getToken: typeof import('@/composables/token')['getToken']
   const h: typeof import('vue')['h']
   const hideFullLoading: typeof import('@/composables/util')['hideFullLoading']

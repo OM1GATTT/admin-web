@@ -32,6 +32,7 @@ export default defineConfig({
 					'@/composables/useAdmin': ['usePassword'],
 					'@/api/auth': ['login', 'logout', 'getCaptcha'],
 					'@/api/admin': ['getInfo', 'rePassword'],
+					'@/api/notice': ['getNoticeList'],
 					'@vueuse/integrations/useCookies': ['useCookies'],
 					'@/store': ['useAdminStore']
 				}

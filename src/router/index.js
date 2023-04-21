@@ -3,7 +3,7 @@ import Admin from '@/layout/admin.vue'
 import Index from '@/views/index.vue'
 import Login from '@/views/login/index.vue'
 import NotFound from '@/views/404.vue'
-
+import Notice from '@/views/notice/index.vue'
 const routes = [
 	{
 		path: '/',
@@ -17,6 +17,14 @@ const routes = [
 				component: Index,
 				meta: {
 					title: '后台首页'
+				}
+			},
+			{
+				path: '/notice',
+				name: 'notice',
+				component: Notice,
+				meta: {
+					title: '通知管理'
 				}
 			}
 		]
