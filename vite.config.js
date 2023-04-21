@@ -9,6 +9,7 @@ import Icons from 'unplugin-icons/vite'
 
 import path from 'path'
 
+
 // https://vitejs.dev/config/
 export default defineConfig({
 	base: './',
@@ -26,13 +27,21 @@ export default defineConfig({
 				{
 					// onBeforeRouteLeave 'vue-router’的这个 API 未被自动导入，在这里补充
 					'vue-router': ['onBeforeRouteLeave'],
+					'@/router': ['addRoutes'],
 					'@/composables/util': ['toast', 'showModal', 'showFullLoading', 'hideFullLoading'],
 					'@/composables/token': ['setToken', 'getToken', 'removeToken'],
 					'@/composables/useAuth': ['useAccountLogin', 'useMobileLogin', 'useLogout'],
 					'@/composables/useAdmin': ['usePassword'],
 					'@/api/auth': ['login', 'logout', 'getCaptcha'],
 					'@/api/admin': ['getInfo', 'rePassword'],
-					'@/api/notice': ['getNoticeList'],
+					'@/api/menu': ['getNav','getAuthority'],
+					'@/api/notice': [
+						'getNoticeList',
+						'getNoticePage',	
+						'saveNotice',	
+						'updateNotice',	
+						'deleteNotice'	
+					],
 					'@vueuse/integrations/useCookies': ['useCookies'],
 					'@/store': ['useAdminStore']
 				}

@@ -1,10 +1,8 @@
-import router from '@/router'
+import {router} from '@/router'
 
 // 全局前置守卫
+let hasGetInfo = false
 router.beforeEach((to, from, next) => {
-	const store = useAdminStore()
-
-	const { getAdminInfo } = store
 
 	const token = getToken()
 
@@ -20,10 +18,21 @@ router.beforeEach((to, from, next) => {
 		return next({ path: from.path ? from.path : '/' })
 	}
 
+	const {getStoreInfo,getStoreNav,getStoreAuthority} = useAdminStore()
 	// 如果用户登录了，则获取用户信息并存储在 pinia 中
-	if (token) {
-		getAdminInfo()
+	let hasNewRoutes = false
+	if (token && !hasNewRoutes) {
+		console.log('get')
+		getStoreInfo().then(()=>{
+			hasGetInfo = true
+			getStoreNav().then(res1=>{
+				hasNewRoutes = addRoutes(res1.data)
+				getStoreAuthority()
+			})
+		})
 	}
-
-	next()
+	hasNewRoutes ? next(to.fullPath) : next()
 })
+
+// 全局后置守卫
+router.afterEach(()=>hideFullLoading())

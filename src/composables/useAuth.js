@@ -3,7 +3,7 @@ export function useAccountLogin() {
 	const router = useRouter()
 	const store = useAdminStore()
 
-	const { login } = store
+	const { storeLogin } = store
 
 	const form = reactive({
 		username: 'admin',
@@ -62,7 +62,7 @@ export function useAccountLogin() {
 			loading.value = true
 
 			setTimeout(() => {
-				login(form).then(res => {
+				storeLogin(form).then(res => {
 					if (res.code === 1) {
 						toast('登录成功')
 						router.push('/')
