@@ -18,7 +18,7 @@
 
 				<el-button
 					class="px-8 py-4 bg-yellow-500 text-light-50 rounded-full"
-					v-premission="['sys:notice:export']"
+					v-permission="['sys:notice:export']"
 					@click=""
 					>导出</el-button
 				>
