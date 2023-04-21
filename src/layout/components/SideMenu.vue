@@ -29,7 +29,7 @@ const handleSelect = e => {
 						</el-icon>
 						<span class="pl-4">{{ item.name }}</span>
 					</template>
-					<el-menu-item v-for="(item2, index2) in item.child" :key="index2" :index="item2.frontpath">
+					<el-menu-item v-for="(item2, index2) in item.child" :key="index2" :index="item2.url">
 						<el-icon>
 							<component :is="item2.icon"></component>
 						</el-icon>
@@ -37,7 +37,7 @@ const handleSelect = e => {
 					</el-menu-item>
 				</el-sub-menu>
 
-				<el-menu-item v-else :index="item.frontpath">
+				<el-menu-item v-else :index="item.url">
 					<el-icon>
 						<component :is="item.icon"></component>
 					</el-icon>
