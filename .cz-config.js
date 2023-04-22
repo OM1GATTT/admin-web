@@ -2,39 +2,39 @@ module.exports = {
 
   types: [
     {
-      value: ':construction: WIP',
+      value: 'WIP',
       name: '💪  WIP:      Work in progress'
     },
     {
-      value: ':sparkles: feat',
+      value: 'feat',
       name: '✨  feat:     A new feature'
     },
     {
-      value: ':bug: fix',
+      value: 'fix',
       name: '🐛  fix:      A bug fix'
     },
     {
-      value: ':hammer: refactor',
+      value: 'refactor',
       name: '🔨  refactor: A code change that neither fixes a bug nor adds a feature'
     },
     {
-      value: ':pencil: docs',
+      value: 'docs',
       name: '📝  docs:     Documentation only changes'
     },
     {
-      value: ':white_check_mark: test',
+      value: 'test',
       name: '✅  test:     Add missing tests or correcting existing tests'
     },
     {
-      value: ':thought_balloon: chore',
+      value: 'chore',
       name: '🗯  chore:    Changes that don\'t modify src or test files. Such as updating build tasks, package manager'
     },
     {
-      value: ':lipstick: ui',
+      value: 'ui',
       name: '💄 Updating the UI and style files.',
     },
     {
-      value: ':art: style',
+      value: 'style',
       name:
         '🎨 Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)',
     },
@@ -43,27 +43,15 @@ module.exports = {
       name: '⏪  revert:   Revert to a commit'
     },
     {
-      value: ':package: dep_up',
+      value: 'build',
       name: '📦 Updating compiled files or packages.',
     },
     {
-      value: ':green_heart: fixci',
-      name: '💚 Fixing CI Build.',
-    },
-    {
-      value: ':truck: mv',
-      name: '🚚 Moving or renaming files.',
-    },
-    {
-      value: ':fire: prune',
-      name: '🔥 Removing code or files.',
-    },
-    {
-      value: ':bookmark: release',
+      value: 'release',
       name: '🔖 Releasing / Version tags.',
     },
     {
-      value: ':rocket: first release',
+      value: 'first release',
       name: '🚀 first releast!',
     }
   ],
