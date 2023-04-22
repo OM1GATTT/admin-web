@@ -1,8 +1,8 @@
-import {router} from '@/router'
+import {router,addRoutes} from '@/router'
 
 // 全局前置守卫
 let hasGetInfo = false
-router.beforeEach((to, from, next) => {
+router.beforeEach(async(to, from, next) => {
 
 	const token = getToken()
 
@@ -18,19 +18,22 @@ router.beforeEach((to, from, next) => {
 		return next({ path: from.path ? from.path : '/' })
 	}
 
-	const {getStoreInfo,getStoreNav,getStoreAuthority} = useAdminStore()
+	const {getStoreInfo} = useAdminStore()
 	// 如果用户登录了，则获取用户信息并存储在 pinia 中
 	let hasNewRoutes = false
-	if (token && !hasNewRoutes) {
+	if (token && !hasGetInfo) {
 		console.log('get')
-		getStoreInfo().then(()=>{
-			hasGetInfo = true
-			getStoreNav().then(res1=>{
-				hasNewRoutes = addRoutes(res1.data)
-				getStoreAuthority()
-			})
-		})
+		const res = await getStoreInfo()
+		hasGetInfo = true
+		// 动态添加路由
+		hasNewRoutes = addRoutes(res.data.nav)
 	}
+
+
+	// 设置页面标题
+	let title  = '后台系统-' + to.meta.title ? to.meta.title : ''
+	document.title = title
+
 	hasNewRoutes ? next(to.fullPath) : next()
 })
 

@@ -27,7 +27,9 @@ export const useAdminStore = defineStore('admin', {
 				getInfo()
 					.then(res => {
 						console.log(res.data)
-						this.adminInfo = res.data
+						this.adminInfo = res.data.sysUserVO
+						this.menus = res.data.nav
+						this.authorities = res.data.authority
 						resolve(res)
 					})
 					.catch(err => reject(err))
