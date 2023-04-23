@@ -9,7 +9,7 @@
 
 				<input
 					type="text"
-					v-model="title"
+					v-model="keyword"
 					placeholder="请搜索"
 					class="text-gray-500 border-gray-300 solid border-1 outline-none rounded-2xl py-1 ml-3 w-60 pl-2 text-sm"
 				/>
@@ -28,7 +28,12 @@
 			<el-table-column prop="ip" label="登录IP" width="120px" align="center" />
 			<el-table-column prop="address" label="登录地址" width="120px" align="center" />
 			<el-table-column prop="userAgent" label="登录设备" width="500" align="center" />
-			<el-table-column prop="status" label="登录状态" width="100px" align="center" />
+			<el-table-column label="登录状态" width="100px" align="center">
+				<template #default="scope">
+					<span v-if="scope.row.status === 1">成功</span>
+					<span v-else>失败</span>
+				</template>
+			</el-table-column>
 			<el-table-column prop="createTime" label="创建日期" align="center" />
 		</el-table>
 
@@ -49,5 +54,5 @@
 
 <script setup>
 import { useLog } from '../../../composables/useLog'
-const { tableData, pagecount, currentPage, total, limit, title, getData } = useLog()
+const { tableData, pagecount, currentPage, total, limit, keyword, getData } = useLog()
 </script>

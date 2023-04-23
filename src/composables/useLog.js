@@ -4,7 +4,7 @@ export function useLog() {
 	const currentPage = ref(1)
 	const total = ref(0)
 	const limit = ref(5)
-	const title = ref('')
+	const keyword = ref('')
 	const pagecount = ref(0)
 
 	// 页面挂载后，调用获取数据的方法
@@ -17,7 +17,7 @@ export function useLog() {
 		if (typeof p == 'number') {
 			currentPage.value = p
 		}
-		getLogLoginPage(currentPage.value, limit.value)
+		getLogLoginPage(currentPage.value, limit.value, keyword.value)
 			.then(res => {
 				console.log(res)
 				tableData.value = res.data.list
@@ -33,7 +33,7 @@ export function useLog() {
 		currentPage,
 		total,
 		limit,
-		title,
+		keyword,
 		getData
 	}
 }
