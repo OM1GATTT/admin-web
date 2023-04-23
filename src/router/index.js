@@ -11,7 +11,7 @@ import User from '@/views/user/index.vue'
 import Goods from '@/views/goods/index.vue'
 import Docs from '@/views/docs/index.vue'
 import Order from '@/views/order/index.vue'
-
+import LogLogin from '@/views/log/login/index.vue'
 
 const routes = [
 	{
@@ -111,6 +111,14 @@ const asyncRoutes = [
 			title: '接口文档'
 		}
 	},
+	{
+		path: '/log/login/index',
+		name: 'loglogin',
+		component: LogLogin,
+		meta: {
+			title: '登录日志'
+		}
+	}
 ]
 
 export const router = createRouter({
@@ -118,16 +126,16 @@ export const router = createRouter({
 	history: createWebHistory()
 })
 
-export function addRoutes(menus){
+export function addRoutes(menus) {
 	let hasNewRoutes = false
-	const findAndAddRoutesByMenus = arr =>{
+	const findAndAddRoutesByMenus = arr => {
 		arr.forEach(e => {
 			let item = asyncRoutes.find(o => o.path == e.url)
-			if(item && !router.hasRoute(item.path)){
-				router.addRoute('admin',item)
+			if (item && !router.hasRoute(item.path)) {
+				router.addRoute('admin', item)
 				hasNewRoutes = true
 			}
-			if(e.children && e.children.length > 0){
+			if (e.children && e.children.length > 0) {
 				findAndAddRoutesByMenus(e.children)
 			}
 		})

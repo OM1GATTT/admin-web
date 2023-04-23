@@ -44,6 +44,7 @@ declare global {
   const getCurrentInstance: typeof import('vue')['getCurrentInstance']
   const getCurrentScope: typeof import('vue')['getCurrentScope']
   const getInfo: typeof import('@/api/admin')['getInfo']
+  const getLogLoginPage: typeof import('@/api/log')['getLogLoginPage']
   const getNav: typeof import('@/api/menu')['getNav']
   const getNoticeList: typeof import('@/api/notice')['getNoticeList']
   const getNoticePage: typeof import('@/api/notice')['getNoticePage']

@@ -42,6 +42,7 @@ export default defineConfig({
 						'updateNotice',	
 						'deleteNotice'	
 					],
+					'@/api/log':['getLogLoginPage'],
 					'@vueuse/integrations/useCookies': ['useCookies'],
 					'@/store': ['useAdminStore']
 				}
