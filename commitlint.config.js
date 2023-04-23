@@ -8,7 +8,7 @@ module.exports = {
 			2,
 			'always',
 			[
-                'WIP', // 进行中
+                'wip', // 进行中
 				'feat',// 新功能 feature
 				'fix', // 修复 bug
 				'docs', // 文档注释

@@ -2,7 +2,7 @@ module.exports = {
 
   types: [
     {
-      value: 'WIP',
+      value: 'wip',
       name: '💪  WIP:      Work in progress'
     },
     {
